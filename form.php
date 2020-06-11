@@ -18,8 +18,12 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+
     <div class="content">
- 
+  
+    <div class="logo">
+      <img id="logo" src="logov5.png" alt="zzzchedule">
+    </div>
       <div class="text">Login</div>
       <form action="user_login.php" method="post">
         <div class="field">
@@ -35,7 +39,7 @@
         <div class="forgot-pass"><a href="#">Forgot Password?</a></div>
         
         <button type="submit" value="submit" name="submit">Login</button>
-        <div class="signup">Not a member?
+        <div class="signup">No account?
           <a href="#">signup now</a>
         </div>
       </form>

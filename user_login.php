@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-echo " <small>Session ID: " . session_id() . "</small>";
+// echo " <small>Session ID: " . session_id() . "</small>";
 include('config.php');
 include('form.php');
 // $error='';
@@ -9,7 +9,7 @@ include('form.php');
 //session_start();
 //echo session_id();
 
-var_dump($_POST);
+// var_dump($_POST);
 
 if (isset($_POST['submit'])) {
     if(empty($_POST['username']) || empty($_POST['password'])) {

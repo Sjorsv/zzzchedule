@@ -25,8 +25,32 @@ function insertRfIdLog() {
     $stmt->bindParam(":card", $cardid);
     $stmt->bindParam(":dt", $time);
 	$stmt->execute();
+	$id = $conn->lastInsertId();
+
 	
-	echo "success";
+	// echo "success";
+	$selectStmt = $conn->query("SELECT * FROM alarms");
+	$result = $selectStmt->fetch(PDO::FETCH_ASSOC);	
+	$gotobedtime = substr($result['gotobedtime'], 0, strlen($result['gotobedtime']) - 3);
+	$alarmtime = substr($result['alarmtime'], 0, strlen($result['alarmtime']) - 3);
+
+	if (($alarmtime <= $time)) {
+		echo $buzzer;
+		return;
+	}
+	
+	if (($id % 2) == 0){
+		echo $gotobedtime <= $time ? "Groen" : "Rood";
+		// echo "inchecken";
+		// var_dump($gotobedtime, $time);
+
+	} else {
+		echo $alarmtime > $time ? "Rood" : "Groen";
+		// echo "uitchecken";
+	}
+
+	
+	
 }
 
 function showLogs()
